@@ -7,4 +7,7 @@ class Director
 
   def play
   end
+
+  def draw
+  end
 end
