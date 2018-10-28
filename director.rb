@@ -17,7 +17,4 @@ class Director
   def draw
     Sprite.draw(@cells)
   end
-
-  def draw
-  end
 end
