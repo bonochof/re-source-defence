@@ -1,6 +1,9 @@
 class Director
   def initialize
     @cells = []
+    @cards = [Card.new(100, 300, C_RED),
+              Card.new(200, 300, C_BLUE),
+              Card.new(300, 300, C_YELLOW)]
   end
 
   def input
@@ -16,5 +19,6 @@ class Director
 
   def draw
     Sprite.draw(@cells)
+    Sprite.draw(@cards)
   end
 end
