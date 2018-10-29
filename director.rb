@@ -1,5 +1,7 @@
 class Director
   def initialize
+    @background = Image.new(Window.width, Window.height, C_WHITE)
+    @menu = Menu.new
     @cells = []
     @cards = [Card.new(100, 300, C_RED),
               Card.new(200, 300, C_BLUE),
@@ -18,7 +20,8 @@ class Director
   end
 
   def draw
+    Window.draw(0, 0, @background)
     Sprite.draw(@cells)
-    Sprite.draw(@cards)
+    @menu.draw
   end
 end
