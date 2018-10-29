@@ -4,8 +4,9 @@ class Director
     @menus = {:build => Menu.new(1, 10, 10, C_BLUE, "Build"),
               :training => Menu.new(2, 300, 30, C_GREEN, "Training")}
     @cells = []
-    @mapId = [[0, 1, 2],
-              [2, 0, 0]]
+    @mapId = [[0, 1, 2, 0],
+              [2, 0, 0, 1, 2],
+              [1, 1, 2, 0]]
     @map = MapData.new(100, 200, @mapId)
   end
 
