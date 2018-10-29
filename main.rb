@@ -3,7 +3,7 @@ require 'dxruby'
 require_relative 'director'
 require_relative 'menu'
 require_relative 'cell'
-require_relative 'card'
+require_relative 'mapfactory'
 
 Window.caption = "RE:source Defence"
 #Window.width = 800

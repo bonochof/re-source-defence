@@ -3,9 +3,8 @@ class Director
     @background = Image.new(Window.width, Window.height, C_WHITE)
     @menu = Menu.new
     @cells = []
-    @cards = [Card.new(100, 300, C_RED),
-              Card.new(200, 300, C_BLUE),
-              Card.new(300, 300, C_YELLOW)]
+    @mapfactory = MapFactory.new
+    @map = @mapfactory.create(200, 200, 0)
   end
 
   def input
@@ -23,5 +22,6 @@ class Director
     Window.draw(0, 0, @background)
     Sprite.draw(@cells)
     @menu.draw
+    @map.draw
   end
 end
