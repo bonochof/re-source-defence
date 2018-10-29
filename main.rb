@@ -1,6 +1,7 @@
 require 'dxruby'
 
 require_relative 'director'
+require_relative 'menu'
 require_relative 'cell'
 
 Window.caption = "RE:source Defence"
