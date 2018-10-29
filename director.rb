@@ -3,8 +3,9 @@ class Director
     @background = Image.new(Window.width, Window.height, C_WHITE)
     @menu = Menu.new
     @cells = []
-    @mapfactory = MapFactory.new
-    @map = @mapfactory.create(200, 200, 0)
+    @mapId = [[0, 1, 2],
+              [2, 0, 0]]
+    @map = MapData.new(100, 200, @mapId)
   end
 
   def input
