@@ -1,4 +1,4 @@
-class Menu < Sprite
+class Menu
   POS_X = 10
   POS_Y = 10
   WIDTH = 64 * 3
