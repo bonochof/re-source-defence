@@ -1,7 +1,8 @@
 class Director
   def initialize
     @background = Image.new(Window.width, Window.height, C_WHITE)
-    @menu = Menu.new
+    @menus = {:build => Menu.new(1, 10, 10, C_BLUE, "Build"),
+              :training => Menu.new(2, 300, 30, C_GREEN, "Training")}
     @cells = []
     @mapId = [[0, 1, 2],
               [2, 0, 0]]
@@ -22,7 +23,7 @@ class Director
   def draw
     Window.draw(0, 0, @background)
     Sprite.draw(@cells)
-    @menu.draw
+    Sprite.draw(@menus.to_a)
     @map.draw
   end
 end

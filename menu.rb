@@ -1,20 +1,23 @@
-class Menu
-  POS_X = 10
-  POS_Y = 10
-  WIDTH = 64 * 3
-  HEIGHT = 48 * 3
+class Menu < Sprite
+  FONT_SIZE = 24
 
-  def initialize
-    @cursor = 0
-    @font = Font.new(24, "Consolas", :weight=>true)
+  def initialize(id, x, y, color, str)
+    @id = id
+    @str = str
+    @font = Font.new(FONT_SIZE, "Consolas", :weight=>true)
+    super(x, y, Image.new(100, 50, color))
   end
 
-  def select
+  def set
+    self.visible = true
+  end
+
+  def hit
+    self.visible = false
   end
 
   def draw
-    Window.draw_box_fill(POS_X, POS_Y, POS_X + WIDTH, POS_Y + HEIGHT, C_BLACK)
-    Window.draw_box(POS_X + 3, POS_Y + 3, POS_X + WIDTH - 3, POS_Y + HEIGHT - 3, C_WHITE)
-    Window.draw_font(POS_X + 70, POS_Y + 5, "Menu", @font)
+    super
+    Window.draw_font(self.x, self.y, @str, @font)
   end
 end
