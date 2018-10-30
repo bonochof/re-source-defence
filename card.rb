@@ -1,6 +1,6 @@
 class Card < Sprite
   CARD_WIDTH = 100
-  CARD_HEIGHT = 160
+  CARD_HEIGHT = 140
   @@image = Image.new(CARD_WIDTH, CARD_HEIGHT, C_BLUE)
   @@nameFont = Font.new(24, "Consolas")
   @@textFont = Font.new(16, "Consolas")
