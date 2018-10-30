@@ -5,12 +5,12 @@ class Director
     @menus = {:build => Menu.new(1, 10, 10, C_BLUE, "Build"),
               :training => Menu.new(2, 300, 30, C_GREEN, "Training")}
     @cells = []
-    @mapId = [[0, 1, 2, 0],
+    @mapIds = [[0, 1, 2, 0],
               [2, 0, 0, 1, 2],
               [1, 1, 2, 0]]
-    @map = MapData.new(100, 200, @mapId)
+    @map = MapData.new(100, 200, @mapIds)
     @scene = :start
-    @card = Card.new(100, 100, "title", "text")
+    @card = Card.new(100, 300, "title", "text")
   end
 
   def input

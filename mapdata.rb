@@ -1,10 +1,10 @@
 class MapData
   @@mapImages = Image.load_tiles("./img/map.bmp", 8, 8, true)
 
-  def initialize(x, y, ary_tileId)
+  def initialize(x, y, tileIds)
     @mapTiles = []
 
-    ary_tileId.each_with_index do |ary, i|
+    tileIds.each_with_index do |ary, i|
       lines = []
       ary.each_with_index do |elm, j|
         lines << Sprite.new(x + j * 32, y + i * 32, @@mapImages[elm])
