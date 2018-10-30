@@ -1,11 +1,12 @@
 class Card < Sprite
   CARD_WIDTH = 100
   CARD_HEIGHT = 160
+
   def initialize(x, y, name, text)
     @name = name
     @text = text
-    @nameFont = Font.new(24)
-    @textFont = Font.new(16)
+    @nameFont = Font.new(24, "Consolas")
+    @textFont = Font.new(16, "Consolas")
     super(x, y, Image.new(CARD_WIDTH, CARD_HEIGHT, C_BLUE))
   end
 
