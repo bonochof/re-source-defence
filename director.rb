@@ -8,6 +8,7 @@ class Director
               [2, 0, 0, 1, 2],
               [1, 1, 2, 0]]
     @map = MapData.new(100, 200, @mapId)
+    @card = Card.new(100, 100, "farm", "produce food")
   end
 
   def input
@@ -26,5 +27,6 @@ class Director
     Sprite.draw(@cells)
     Sprite.draw(@menus.to_a)
     @map.draw
+    @card.draw
   end
 end
