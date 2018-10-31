@@ -10,7 +10,9 @@ class Director
               [1, 1, 2, 0]]
     @map = MapData.new(100, 200, @mapIds)
     @scene = :start
-    @card = Card.new(100, 300, "title", "text")
+    @cards = [Card.new(100, 300, "harvest", "+1 food", :color1=>C_GREEN, :color2=>C_WHITE),
+              Card.new(250, 300, "tax", "+1 gold", :color1=>C_YELLOW, :color2=>C_WHITE),
+              Card.new(400, 300, "0123456789", "0123456789", :color1=>C_BLUE, :color2=>[255, 100, 100, 100])]
   end
 
   def input
@@ -38,7 +40,7 @@ class Director
       Sprite.draw(@cells)
       Sprite.draw(@menus.to_a)
       @map.draw
-      @card.draw
+      Sprite.draw(@cards)
     end
   end
 end
