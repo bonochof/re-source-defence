@@ -20,11 +20,13 @@ class Director
     when :start
       @scene = :game if Input.key_down?(K_SPACE)
     when :game
+=begin
       10.times do |y|
         10.times do |x|
           @cells << Cell.new(x * 21, y * 21)
         end
       end
+=end
     end
   end
 
