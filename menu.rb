@@ -8,12 +8,8 @@ class Menu < Sprite
     super(x, y, Image.new(100, 50, color))
   end
 
-  def set
-    self.visible = true
-  end
-
-  def hit
-    self.visible = false
+  def hit(mouse)
+    self.vanish if mouse.push
   end
 
   def draw
