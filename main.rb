@@ -1,6 +1,7 @@
 require 'dxruby'
 
 require_relative 'director'
+require_relative 'mouse'
 require_relative 'menu'
 require_relative 'cell'
 require_relative 'mapdata'

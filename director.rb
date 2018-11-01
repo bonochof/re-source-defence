@@ -10,9 +10,13 @@ class Director
               [1, 1, 2, 0]]
     @map = MapData.new(100, 200, @mapId)
     @scene = :start
+    @mouse = Mouse.new
   end
 
   def input
+    @mouse.x = Input.mouse_pos_x
+    @mouse.y = Input.mouse_pos_y
+    @mouse.push = Input.mouse_push?(M_LBUTTON)
   end
 
   def play
@@ -20,6 +24,8 @@ class Director
     when :start
       @scene = :game if Input.key_down?(K_SPACE)
     when :game
+      Sprite.update(@menus.to_a)
+      Sprite.check(@mouse, @menus.to_a)
 =begin
       10.times do |y|
         10.times do |x|
