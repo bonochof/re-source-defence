@@ -19,6 +19,7 @@ class Director
     @cards = [Card.new(100, 300, "harvest", "+1 food", :color1 => C_GREEN, :color2 => C_WHITE),
               Card.new(250, 300, "tax", "+1 gold", :color1 => C_YELLOW, :color2 => C_WHITE),
               Card.new(400, 300, "01234567", "01234567890this is newline test", :color1 => C_BLUE, :color2 => [255, 200, 200, 200])]
+    @deck = Deck.new
     @mouse = Mouse.new
     @kingdom = Kingdom.new
   end
