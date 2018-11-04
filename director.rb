@@ -52,7 +52,7 @@ class Director
 
   def draw
     case @scene
-    when :start
+    when :title
       Window.draw(0, 0, @title)
     when :game
       Window.draw(0, 0, @background)
