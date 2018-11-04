@@ -42,6 +42,7 @@ class Director
       when :end
       end
       if @mouse === @menus[@phase] and @mouse.push
+        @kingdom.dayend if @phase == :end
         @pnum += 1
         @pnum %= PHASE.length
         @phase = PHASE[@pnum]
@@ -59,6 +60,7 @@ class Director
       Sprite.draw(@menus[@phase])
       @map.draw
       Sprite.draw(@cards)
+      @kingdom.draw
     end
   end
 end
