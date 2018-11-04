@@ -5,11 +5,14 @@ class Director
     @menus = {:build => Menu.new(1, 10, 10, C_BLUE, "Build"),
               :training => Menu.new(2, 300, 30, C_GREEN, "Training")}
     @cells = []
-    @mapId = [[0, 1, 2, 0],
+    @mapIds = [[0, 1, 2, 0],
               [2, 0, 0, 1, 2],
               [1, 1, 2, 0]]
-    @map = MapData.new(100, 200, @mapId)
+    @map = MapData.new(100, 200, @mapIds)
     @scene = :start
+    @cards = [Card.new(100, 300, "harvest", "+1 food", :color1=>C_GREEN, :color2=>C_WHITE),
+              Card.new(250, 300, "tax", "+1 gold", :color1=>C_YELLOW, :color2=>C_WHITE),
+              Card.new(400, 300, "0123456789", "0123456789", :color1=>C_BLUE, :color2=>[255, 100, 100, 100])]
     @mouse = Mouse.new
   end
 
@@ -29,7 +32,7 @@ class Director
 =begin
       10.times do |y|
         10.times do |x|
-          @cells << Cell.new(x * 21, y * 21)
+          #@cells << Cell.new(x * 21, y * 21)
         end
       end
 =end
@@ -45,6 +48,7 @@ class Director
       Sprite.draw(@cells)
       Sprite.draw(@menus.to_a)
       @map.draw
+      Sprite.draw(@cards)
     end
   end
 end
