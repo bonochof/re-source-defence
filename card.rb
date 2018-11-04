@@ -17,4 +17,8 @@ class Card < Sprite
     end
     super(x, y, @card_image)
   end
+
+  def use
+    yield
+  end
 end
