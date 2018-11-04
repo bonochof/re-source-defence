@@ -10,9 +10,9 @@ class Director
               [1, 1, 2, 0]]
     @map = MapData.new(100, 200, @mapIds)
     @scene = :start
-    @cards = [Card.new(100, 300, "harvest", "+1 food", :color1=>C_GREEN, :color2=>C_WHITE),
-              Card.new(250, 300, "tax", "+1 gold", :color1=>C_YELLOW, :color2=>C_WHITE),
-              Card.new(400, 300, "0123456789", "0123456789", :color1=>C_BLUE, :color2=>[255, 100, 100, 100])]
+    @cards = [Card.new(100, 300, "harvest", "+1 food", :color1 => C_GREEN, :color2 => C_WHITE),
+              Card.new(250, 300, "tax", "+1 gold", :color1 => C_YELLOW, :color2 => C_WHITE),
+              Card.new(400, 300, "01234567", "01234567890this is newline test", :color1 => C_BLUE, :color2 => [255, 200, 200, 200])]
     @mouse = Mouse.new
   end
 
