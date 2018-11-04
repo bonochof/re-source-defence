@@ -43,10 +43,12 @@ class Director
       end
       if @mouse === @menus[@phase] and @mouse.push
         @kingdom.dayend if @phase == :end
+        @scene = :boss if @kingdom.day > 30
         @pnum += 1
         @pnum %= PHASE.length
         @phase = PHASE[@pnum]
       end
+    when :boss
     end
   end
 
