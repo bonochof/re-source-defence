@@ -1,5 +1,5 @@
 class Kingdom
-  attr_accessor :gold, :attack, :defence, :action
+  attr_accessor :day, :gold, :attack, :defence, :action
   FONT_SIZE = 24
   @@font = Font.new(FONT_SIZE, "Consolas")
 
