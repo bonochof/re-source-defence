@@ -34,7 +34,7 @@ class Director
       when :main
       when :battle
       when :end
-        phase = :card
+        phase = :draw
       end
       Sprite.update(@menus.to_a)
       Sprite.check(@mouse, @menus.to_a)
