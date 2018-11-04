@@ -6,6 +6,7 @@ require_relative 'menu'
 require_relative 'cell'
 require_relative 'mapdata'
 require_relative 'card'
+require_relative 'kingdom'
 
 Window.caption = "RE:source Defence"
 #Window.width = 800
