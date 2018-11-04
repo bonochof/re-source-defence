@@ -9,7 +9,8 @@ class Director
               [2, 0, 0, 1, 2],
               [1, 1, 2, 0]]
     @map = MapData.new(100, 200, @mapIds)
-    @scene = :start
+    @scene = :title
+    @phase = :draw
     @cards = [Card.new(100, 300, "harvest", "+1 food", :color1 => C_GREEN, :color2 => C_WHITE),
               Card.new(250, 300, "tax", "+1 gold", :color1 => C_YELLOW, :color2 => C_WHITE),
               Card.new(400, 300, "01234567", "01234567890this is newline test", :color1 => C_BLUE, :color2 => [255, 200, 200, 200])]
@@ -24,9 +25,17 @@ class Director
 
   def play
     case @scene
-    when :start
+    when :title
       @scene = :game if Input.key_down?(K_SPACE)
     when :game
+      case @phase
+      when :draw
+      when :standby
+      when :main
+      when :battle
+      when :end
+        phase = :card
+      end
       Sprite.update(@menus.to_a)
       Sprite.check(@mouse, @menus.to_a)
 =begin
