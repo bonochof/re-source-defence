@@ -16,10 +16,9 @@ class Director
     @scene = :title
     @pnum = 0
     @phase = PHASE[@pnum]
-    @cards = [Card.new(100, 300, CardInfo::MARKET),
-              Card.new(250, 300, CardInfo::FARM),
-              Card.new(400, 300, CardInfo::TEST)]
     @deck = Deck.new
+    @hands = []
+    @is_drawed = false
     @mouse = Mouse.new
     @kingdom = Kingdom.new
   end
@@ -37,7 +36,19 @@ class Director
     when :game
       case @phase
       when :draw
+        if @is_drawed == false
+          @hands = []
+
+          for i in 0..2 do
+            @hands << Card.new(100 + i * 150, 300, @deck.drawCard)
+          end
+
+          p "day: #{@kingdom.day}"
+          @deck.show
+          @is_drawed = true
+        end
       when :standby
+        @is_drawed = false
       when :main
       when :battle
       when :end
@@ -62,7 +73,7 @@ class Director
       Sprite.draw(@cells)
       Sprite.draw(@menus[@phase])
       @map.draw
-      Sprite.draw(@cards)
+      Sprite.draw(@hands)
       @kingdom.draw
     end
   end

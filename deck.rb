@@ -7,7 +7,7 @@ class Deck
     ]
     @deck = []
     build
-    show
+    #show
   end
 
   def build
@@ -28,5 +28,12 @@ class Deck
     @deck.each_with_index do |info, i|
       p "#{i}: #{info[0]}"
     end
+    p "----------------------"
+  end
+
+  def drawCard
+    #syusei yotei
+    build if @deck.length == 0
+    @deck.pop
   end
 end
