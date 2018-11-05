@@ -1,21 +1,31 @@
 class Deck
   def initialize()
-    @cards = []
+    @deck_recipe = [
+      [CardInfo::FARM, 3],
+      [CardInfo::MARKET, 3],
+      [CardInfo::TEST, 1]
+    ]
+    @deck = []
     build
     show
   end
 
   def build
-    3.times do
-      @cards << CardInfo::MARKET
+    @deck_recipe.each do |card|
+      card[1].times do
+        @deck << card[0]
+      end
     end
-    3.times do
-      @cards << CardInfo::FARM
-    end
+    @deck = @deck.shuffle
   end
 
   def show
-    @cards.each_with_index do |info, i|
+    p "----- deck recipe -----"
+    @deck_recipe.each_with_index do |info, i|
+      p "#{info[0][0]} * #{info[1]}"
+    end
+    p "-------- deck --------"
+    @deck.each_with_index do |info, i|
       p "#{i}: #{info[0]}"
     end
   end
