@@ -16,14 +16,10 @@ class Director
     @scene = :title
     @pnum = 0
     @phase = PHASE[@pnum]
-
-=begin
-    @cards = {:farm => Card.new(100, 300, "farm", "+1 food", :color1 => C_GREEN, :color2 => C_WHITE),
-              :market => Card.new(250, 300, "market", "+1 gold", :color1 => C_YELLOW, :color2 => C_WHITE),
-              :test => Card.new(400, 300, "01234567", "01234567890this is newline test", :color1 => C_BLUE, :color2 => [255, 200, 200, 200])}
-=end
-    @cards = [Card.new(100, 300, CardInfo::MARKET, :color1 => C_YELLOW, :color2 => C_WHITE),
-              Card.new(250, 300, CardInfo::TEST, :color1 => C_BLUE, :color2 => [255, 200, 200, 200])]
+    @cards = [Card.new(100, 300, CardInfo::MARKET),
+              Card.new(250, 300, CardInfo::FARM),
+              Card.new(400, 300, CardInfo::TEST)]
+    @deck = Deck.new
     @mouse = Mouse.new
     @kingdom = Kingdom.new
   end
