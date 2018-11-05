@@ -43,16 +43,19 @@ class Director
       when :end
       end
       if @mouse === @menus[@phase] and @mouse.push
+        @kingdom.dayend if @phase == :end
+        @scene = :boss if @kingdom.day > 30
         @pnum += 1
         @pnum %= PHASE.length
         @phase = PHASE[@pnum]
       end
+    when :boss
     end
   end
 
   def draw
     case @scene
-    when :start
+    when :title
       Window.draw(0, 0, @title)
     when :game
       Window.draw(0, 0, @background)
@@ -60,6 +63,7 @@ class Director
       Sprite.draw(@menus[@phase])
       @map.draw
       Sprite.draw(@cards)
+      @kingdom.draw
     end
   end
 end
