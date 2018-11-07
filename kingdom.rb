@@ -1,11 +1,12 @@
 class Kingdom
-  attr_accessor :day, :gold, :attack, :defence, :action
+  attr_accessor :day, :gold, :food, :attack, :defence, :action
   FONT_SIZE = 24
   @@font = Font.new(FONT_SIZE, "Consolas")
 
   def initialize
     @day = 1
     @gold = 0
+    @food = 0
     @attack = 0
     @defence = 0
     @action = 1
