@@ -52,6 +52,7 @@ class Director
       when :main
       when :battle
       when :end
+        @kingdom.gold -= 100
       end
       if @mouse === @menus[@phase] and @mouse.push
         @kingdom.dayend if @phase == :end
