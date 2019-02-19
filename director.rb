@@ -2,7 +2,7 @@ class Director
   PHASE = [:draw, :standby, :main, :battle, :end]
 
   def initialize
-    @title = Image.new(Window.width, Window.height, C_BLUE)
+    @title = Image.new(Window.width, Window.height, C_BLACK)
     @background = Image.new(Window.width, Window.height, C_WHITE)
     @menus = {:draw => Menu.new(0, 0, C_BLUE, "Draw"),
               :standby => Menu.new(0, 50, C_GREEN, "Standby"),
@@ -22,6 +22,8 @@ class Director
     @mouse = Mouse.new
     @kingdom = Kingdom.new
     @soldiers = []
+    @counter = Window.height
+    @font = Font.new(24)
   end
 
   def input
@@ -40,6 +42,7 @@ class Director
     case @scene
     when :title
       @scene = :game if Input.key_down?(K_SPACE)
+      @counter -= 1
     when :game
       case @phase
       when :draw
@@ -77,6 +80,7 @@ class Director
     case @scene
     when :title
       Window.draw(0, 0, @title)
+      Window.draw_font(10, @counter, "あなたはとある孤島の王国を治める王様です。\n\n\nこの国は長い間平和でしたが、\nある日を境に各地で魔物が出現するようになりました。\n\nさらに王宮魔術師の見解によれば、\n今からおよそ30日後には王国を滅ぼすほどの\n極めて強力な魔物が出現するというのです。\n\n\nあなたは王様として、\nこの国を守らなくてはなりません！", @font)
     when :game
       Window.draw(0, 0, @background)
       Sprite.draw(@cells)
