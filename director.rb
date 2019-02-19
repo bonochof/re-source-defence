@@ -2,7 +2,8 @@ class Director
   PHASE = [:draw, :standby, :main, :battle, :end]
 
   def initialize
-    @title = Image.new(Window.width, Window.height, C_BLACK)
+    @title_back = Image.new(Window.width, Window.height, C_GREEN)
+    @opening_back = Image.new(Window.width, Window.height, C_BLACK)
     @background = Image.new(Window.width, Window.height, C_WHITE)
     @menus = {:draw => Menu.new(0, 0, C_BLUE, "Draw"),
               :standby => Menu.new(0, 50, C_GREEN, "Standby"),
@@ -22,8 +23,9 @@ class Director
     @mouse = Mouse.new
     @kingdom = Kingdom.new
     @soldiers = []
-    @counter = Window.height
-    @font = Font.new(24)
+    @counter = 0
+    @title_font = Font.new(64, "Consolas")
+    @opening_font = Font.new(24)
   end
 
   def input
@@ -41,8 +43,13 @@ class Director
   def play
     case @scene
     when :title
-      @scene = :game if Input.key_down?(K_SPACE)
+      if Input.key_down?(K_SPACE)
+        @scene = :opening
+        @counter = Window.height
+      end
+    when :opening
       @counter -= 1
+      @scene = :game if @counter < -320
     when :game
       case @phase
       when :draw
@@ -79,8 +86,12 @@ class Director
   def draw
     case @scene
     when :title
-      Window.draw(0, 0, @title)
-      Window.draw_font(10, @counter, "あなたはとある孤島の王国を治める王様です。\n\n\nこの国は長い間平和でしたが、\nある日を境に各地で魔物が出現するようになりました。\n\nさらに王宮魔術師の見解によれば、\n今からおよそ30日後には王国を滅ぼすほどの\n極めて強力な魔物が出現するというのです。\n\n\nあなたは王様として、\nこの国を守らなくてはなりません！", @font)
+      Window.draw(0, 0, @title_back)
+      Window.draw_font_ex(50, 100, "Re: Source Defence", @title_font, :color=>C_BLACK, :edge=>true, :edge_color=>C_RED, :shadow=>true)
+      Window.draw_font_ex(100, 300, "Press Space Key", @title_font, :color=>C_BLACK)
+    when :opening
+      Window.draw(0, 0, @opening_back)
+      Window.draw_font(10, @counter, "あなたはとある孤島の王国を治める王様です。\n\n\nこの国は長い間平和でしたが、\nある日を境に各地で魔物が出現するようになりました。\n\nさらに王宮魔術師の見解によれば、\n今からおよそ30日後には王国を滅ぼすほどの\n極めて強力な魔物が出現するというのです。\n\n\nあなたは王様として、\nこの国を守らなくてはなりません！", @opening_font)
     when :game
       Window.draw(0, 0, @background)
       Sprite.draw(@cells)
